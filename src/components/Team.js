@@ -1,7 +1,6 @@
 import React from "react"
 import data from "./allMyData.json"
-import Player from "./Player"
-import styled from "styled-components"
+//import Player from "./Player"
 import { Table, TableBody, TableCell, TableHead, TableRow, Paper } from '@material-ui/core/'
 
 class Team extends React.Component {
@@ -13,14 +12,15 @@ class Team extends React.Component {
 
     componentDidMount() {
         this.setState({
-            myTeam: data.myPlayersStats.fantasy_content.players.player,
-            statCategories: data.statIDs.stat
+            myTeam: data.myPlayersStats.fantasy_content.players.player.filter(player => player.position_type === "B"),
+            statCategories: data.statIDs.stat.filter(stat => stat.position_types.position_type.includes("B"))
         })
     }
 
     render() {
         console.log(this.state.myTeam)
         console.log(this.state.statCategories)
+        console.log(this.state.statCategories.map(stat => stat.position_types))
         return (
             <Paper>
                 <Table>
@@ -50,13 +50,6 @@ class Team extends React.Component {
         )
     }
 }
-
-const CardHolder = styled.div`
-display: flex;
-flex-direction: row;
-flex-flow: wrap;
-width: 100%;
-height: 20rem`
 
 
 export default Team
