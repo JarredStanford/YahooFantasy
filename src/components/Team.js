@@ -15,8 +15,8 @@ class Team extends React.Component {
 
     componentDidMount() {
         this.setState({
-            hitters: data.yogiStats.fantasy_content.players.player.filter(player => player.position_type === "B"),
-            pitchers: data.yogiStats.fantasy_content.players.player.filter(player => player.position_type === "P"),
+            hitters: data.myPlayersStats.fantasy_content.players.player.filter(player => player.position_type === "B"),
+            pitchers: data.myPlayersStats.fantasy_content.players.player.filter(player => player.position_type === "P"),
             hittingCategories: data.statIDs.stat.filter(stat => stat.position_types.position_type.includes("B")),
             pitchingCategories: data.statIDs.stat.filter(stat => stat.position_types.position_type.includes("P"))
         })

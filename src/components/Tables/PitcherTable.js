@@ -2,6 +2,12 @@ import React from "react"
 import { Table, TableBody, TableCell, TableHead, TableRow, Paper } from '@material-ui/core/'
 
 class PitcherTable extends React.Component {
+
+    state = {
+        sortStat: []
+    }
+
+
     render() {
         return (
             <Paper>
